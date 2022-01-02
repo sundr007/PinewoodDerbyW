@@ -20,21 +20,26 @@ Xaxle2=Xaxle2_in*in2mm;
 D_hole_weights=7;
 X_weights=120;
 
-indents=5;
+indents=7;
+
+Fslope=65;
+cockpit=85;
+cockpitLen=10;
+spoiler=10;
 
 module DefsideProfile(){
 
     polygon(points=[
-    [0,5],
-    [65,15],
-    [76,15],
-    [85,22],
-    [95,22],
-    [100,18],
+    [-0.1,5],
+    [Fslope,15],
+    [cockpit-10,15],
+    [cockpit,22],
+    [cockpit+cockpitLen,22],
+    [cockpit+cockpitLen+10,18],
     [140,21],
-    [L-10,H],
-    [L,H],
-    [0,H]
+    [L-spoiler,H],
+    [L,H+.1],
+    [0,H+.1]
     ]);
 
 
@@ -58,7 +63,7 @@ module DeffrontProfile(){
 module DefTopProfile(){
     //sides
     polygon(points=[
-    [40,0],
+    [40,-.10],
     [45,indents],
     [115,indents],
     [120,0],
@@ -71,10 +76,10 @@ module DefTopProfile(){
     ]);
     //back sides
     polygon(points=[
-    [140,0],
+    [140,-.10],
     [145,indents],
     [L+1,indents],
-    [L+1,0],
+    [L+1,-.10],
     ]);
     polygon(points=[
     [140,W+.1-0],
@@ -121,6 +126,7 @@ module base(){
 module topProfile(){
     translate([W,0,0])
         rotate([0,0,90])
+            translate([0,0,-.1])
                 linear_extrude(W+.2)
                     DefTopProfile();
 }
