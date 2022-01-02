@@ -1,4 +1,4 @@
-$fn=50;
+//$fn=100;
 
 // Official Specs
 W_in       =1.75;//in
@@ -18,12 +18,12 @@ Xaxle1=Xaxle1_in*in2mm;
 Xaxle2=Xaxle2_in*in2mm;
 
 D_hole_weights=7;
-X_weights=120;
+X_weights=107.21;
 
 indents=7;
 
 Fslope=65;
-cockpit=85;
+cockpit=80;
 cockpitLen=10;
 spoiler=10;
 
@@ -110,10 +110,10 @@ module base(){
     cube([W,L,H]);
     translate([0,Xaxle1,Daxle+1])
         rotate([0,90,0])
-            cylinder(W,Daxle,Daxle);
+            cylinder(W,Daxle/2,Daxle/2);
     translate([0,Xaxle2,Daxle+1]) 
         rotate([0,90,0])   
-            cylinder(W,Daxle,Daxle);
+            cylinder(W,Daxle/2,Daxle/2);
     
     translate([W/2,X_weights,10]) 
         rotate([0,0,0])   
@@ -170,8 +170,10 @@ difference(){
     frontProfile();
     topProfile();
 }
-showFrontProfile();
-showSideProfile();
-showTopProfile();
+//showFrontProfile();
+//showSideProfile();
+//showTopProfile();
 
 //projection(cut=true) rotate([0,90,0]) base();
+
+
