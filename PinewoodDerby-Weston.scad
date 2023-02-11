@@ -138,14 +138,14 @@ rotate([0,0,90])
 }
 
 
-difference(){
-    base();
-    sideProfile();
-    frontProfile();
-    topProfile();
-}
+//difference(){
+//    base();
+//    sideProfile();
+//    frontProfile();
+//    topProfile();
+//}
 showFrontProfile();
-f66fshowSideProfile();
+showSideProfile();
 showTopProfile();
 
 //projection(cut=true) rotate([0,90,0]) base();
